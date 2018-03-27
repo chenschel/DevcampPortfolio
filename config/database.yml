@@ -23,6 +23,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: DevcampPortfolio_development
 
   # The specified database role being used to connect to postgres.
