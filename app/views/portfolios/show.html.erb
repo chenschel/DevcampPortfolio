@@ -1,0 +1,10 @@
+<%= image_tag(@portfolio.main_image, alt: @portfolio.title) %>
+
+<h1><%= @portfolio.title %></h1>
+
+<em><%= @portfolio.subtitle %></em>
+
+<p><%= @portfolio.body %></p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %>
+<%= link_to 'Back', portfolios_path %>
