@@ -1,0 +1,44 @@
+<h1>Edit Portfolio Item</h1>
+
+<%= form_with(model: @portfolio, local: true) do |form| %>
+  <% if @portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% @portfolio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :blog_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle, id: :portfolio_subtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body, id: :portfolio_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_image %>
+    <%= form.text_field :main_image, id: :portfolio_main_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thumb_image %>
+    <%= form.text_field :thumb_image, id: :portfolio_thumb_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

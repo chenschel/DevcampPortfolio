@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :portfolios
-  get 'pages/home'
+  resources :portfolios, except: [:show]
+  get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
-  get 'pages/about'
+  get 'about-me', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
 
-  get 'pages/contact'
+  resources :blogs do
+    member do
+      post :toggle_status
+    end
+  end
 
-  resources :blogs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'pages#home'
 end
