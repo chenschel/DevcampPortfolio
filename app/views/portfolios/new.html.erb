@@ -28,6 +28,15 @@
     <%= form.text_field :body, id: :portfolio_body %>
   </div>
 
+  <ul>
+    <%= form.fields_for :technologies do |technology_form| %>
+      <li>
+        <%= technology_form.label :name %>
+        <%= technology_form.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
+
   <div class="field">
     <%= form.label :main_image %>
     <%= form.text_field :main_image, id: :portfolio_main_image %>
