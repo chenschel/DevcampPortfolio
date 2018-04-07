@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DeviseWhitelist
+module DeviseWhitelistConcern
   extend ActiveSupport::Concern
 
   included do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SessionTracker
+module SessionTrackerConcern
   extend ActiveSupport::Concern
 
   included do

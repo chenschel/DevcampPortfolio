@@ -13,14 +13,17 @@
     <p class="alert"><%= alert %></p>
 
     <% if session[:source].present? %>
-    <p>
-      <%= "Thanks for following me on #{session[:source]}" %>
-    </p>
+      <p><%= "Thanks for following me on #{session[:source]}" %></p>
     <% end %>
-    <%= "Hi, #{current_user.first_name} " if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) if user_signed_in? %>
-    <%= link_to('Login', new_user_session_path) unless user_signed_in? %>
-    <%= link_to('Register', new_user_registration_path) unless user_signed_in? %>
+
+    <%= "Hi, #{current_user.first_name}" %>
+
+    <% if current_user.is_a?(User) %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path) %>
+      <%= link_to('Register', new_user_registration_path) %>
+    <% end %>
 
     <%= yield %>
   </body>
