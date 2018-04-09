@@ -18,9 +18,7 @@
 
     <%= render 'shared/nav', location: 'top' %>
 
-    <% if session[:source].present? %>
-      <p><%= "Thanks for following me on #{session[:source]}" %></p>
-    <% end %>
+    <%= source_helper('application') %>
 
     <%= "Hi, #{current_user.first_name}" %>
 

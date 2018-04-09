@@ -10,4 +10,14 @@ module ApplicationHelper
       "#{login} #{register}".html_safe
     end
   end
+
+  # rubocop:disable GuardClause
+  def source_helper(layout_name)
+    if session[:source].present?
+      content_tag(:p, class: 'source-greeting') do
+        "Thanks for following me on #{session[:source]} and you are on the #{layout_name} layout"
+      end
+    end
+  end
+  # rubocop:enable GuardClause
 end

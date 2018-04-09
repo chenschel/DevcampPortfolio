@@ -24,9 +24,7 @@
 
     <%= yield %>
 
-    <% if session[:source].present? %>
-      <p><%= "Thanks for following me on #{session[:source]}" %></p>
-    <% end %>
+    <%= source_helper('portfolio') %>
 
   </body>
 </html>
