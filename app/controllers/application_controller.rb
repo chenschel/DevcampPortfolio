@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   include SessionTrackerConcern
   include CurrentUserConcern
   include DefaultPageContentConcern
+  include MyViewToolConcern
 end
