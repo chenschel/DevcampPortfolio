@@ -14,10 +14,8 @@ module CurrentUserConcern
   private
 
   def guest_user
-    OpenStruct.new(
+    GuestUser.new(
       name: 'Guest User',
-      first_name: 'Guest',
-      last_name: 'User',
       email: 'example@example.com'
     )
   end
