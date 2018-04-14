@@ -1,0 +1,12 @@
+<header class="masthead mb-auto">
+  <div class="inner">
+    <h3 class="masthead-brand">Cover</h3>
+    <nav class="nav nav-masthead justify-content-center">
+      <%= link_to 'Home', root_path, class: "nav-link #{current_page?(root_path) ? 'active' : ''}" %>
+      <%= link_to 'About Me', about_me_path, class: "nav-link #{current_page?(about_me_path) ? 'active' : ''}" %>
+      <%= link_to 'Contact', contact_path, class: "nav-link #{current_page?(contact_path) ? 'active' : ''}" %>
+      <%= link_to 'Blog', blogs_path, class: "nav-link #{current_page?(blogs_path) ? 'active' : ''}" %>
+      <%= link_to 'Portfolio', portfolios_path, class: "nav-link #{current_page?(portfolios_path) ? 'active' : ''}" %>
+    </nav>
+  </div>
+</header>

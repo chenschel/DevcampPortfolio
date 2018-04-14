@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
 
@@ -13,19 +16,26 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
 
-    <%= render 'shared/nav', location: 'top' %>
+      <%= render 'shared/application_nav' %>
 
-    <%= source_helper('application') %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <%= "Hi, #{current_user.first_name}" %>
+      <%= source_helper('application') %>
 
-    <%= login_helper %>
+      <%= "Hi, #{current_user.first_name}" %>
 
-    <%= yield %>
+      <%= login_helper %>
 
-    <%= @copyright %>
+      <%= yield %>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p><%= @copyright %></p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
