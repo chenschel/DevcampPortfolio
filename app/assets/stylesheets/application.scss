@@ -33,6 +33,7 @@ body {
 }
 
 body {
+  text-align: center!important;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -109,4 +110,20 @@ body {
  */
 .mastfoot {
   color: rgba(255, 255, 255, .5);
+}
+
+
+/*
+ * Customer Styles
+ */
+
+.card-body {
+  color: black;
+  text-align: left;
+}
+
+.auth-links {
+  a {
+    color: black;
+  }
 }
