@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def login_helper
+  def login_helper(style)
     if current_user.instance_of?(User)
-      link_to('Logout', destroy_user_session_path, method: :delete)
+      logout_link(style)
     else
-      login = link_to('Login', new_user_session_path)
-      register = link_to('Register', new_user_registration_path)
-      "#{login} #{register}".html_safe
+      "#{login_link(style)} #{register_link(style)}".html_safe
     end
   end
 
@@ -19,5 +17,33 @@ module ApplicationHelper
       end
     end
   end
+
   # rubocop:enable GuardClause
+
+  private
+
+  def logout_link(style)
+    link_to(
+      'Logout',
+      destroy_user_session_path,
+      method: :delete,
+      class: "#{style} #{current_page?(destroy_user_session_path) ? 'active' : ''}"
+    )
+  end
+
+  def register_link(style)
+    link_to(
+      'Register',
+      new_user_registration_path,
+      class: "#{style} #{current_page?(new_user_registration_path) ? 'active' : ''}"
+    )
+  end
+
+  def login_link(style)
+    link_to(
+      'Login',
+      new_user_session_path,
+      class: "#{style} #{current_page?(new_user_session_path) ? 'active' : ''}"
+    )
+  end
 end

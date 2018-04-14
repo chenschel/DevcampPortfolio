@@ -23,19 +23,13 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <%= source_helper('application') %>
-
       <%= "Hi, #{current_user.first_name}" %>
-
-      <%= login_helper %>
 
       <%= yield %>
 
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p><%= @copyright %></p>
-        </div>
-      </footer>
+      <%= render 'shared/application_footer' %>
+
+      <%= source_helper('application') %>
     </div>
   </body>
 </html>
