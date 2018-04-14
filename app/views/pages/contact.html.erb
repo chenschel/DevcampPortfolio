@@ -1,12 +1,25 @@
-<h1>Pages#contact</h1>
-<p>
-  <%= number_to_phone '00496746677764746' %>
-</p>
+<h1>Contact info</h1>
 
-<p>
-  <%= number_to_currency '123.2355' %>
-</p>
-
-<p>
-  <%= number_with_delimiter 987239847498273.5 %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Office Address</h3>
+    <p>Groß Borstel</p>
+    <h3>Phone</h3>
+    <p><%= number_to_phone(123456778) %></p>
+    <h3>Email</h3>
+    <p>this-email@does-not-exists.com</p>
+  </div>
+  <div class="col-md-6">
+    <%= content_tag(
+            :iframe,
+            '',
+            src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2366.9879636735886!2d9.972208724058593!3d53.61151728170039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1889ba1f8e12b%3A0xbc8370562455f910!2ssum.cumo+GmbH!5e0!3m2!1sde!2sde!4v1523705410248',
+            width: '450',
+            height: '450',
+            frameborder: '0',
+            style: 'border:0',
+            allowfullscreen: true
+        )
+    %>
+  </div>
+</div>

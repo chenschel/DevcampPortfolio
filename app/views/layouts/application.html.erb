@@ -20,12 +20,14 @@
 
       <%= render 'shared/application_nav' %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <main role="main" class="inner cover">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-      <%= "Hi, #{current_user.first_name}" %>
+        <%= "Hi, #{current_user.first_name}" %>
 
-      <%= yield %>
+        <%= yield %>
+      </main>
 
       <%= render 'shared/application_footer' %>
 
