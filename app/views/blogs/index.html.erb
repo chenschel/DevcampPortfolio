@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
+<%= link_to('New Blog', new_blog_path, class: 'btn btn-link') if logged_in?(:site_admin) %>
 
 <h3 class="pb-3 mb-4 font-italic border-bottom">
   From the Firehose
 </h3>
 
 <%= render @blogs, actions: %i[show] %>
+
+<nav class="blog-pagination">
+  <a class="btn btn-outline-primary" href="#">Older</a>
+  <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+</nav>
