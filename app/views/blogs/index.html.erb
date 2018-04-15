@@ -1,24 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
-
 <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Body</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+<h3 class="pb-3 mb-4 font-italic border-bottom">
+  From the Firehose
+</h3>
 
-  <tbody>
-    <%= render @blogs %>
-  </tbody>
-</table>
-
-<br>
-
-
+<%= render @blogs, actions: %i[show] %>

@@ -1,9 +1,37 @@
-<tr>
-  <td><%= blog.title %></td>
-  <td><%= distance_of_time_in_words_to_now(blog.created_at) %></td>
-  <td><%= blog.body %></td>
-  <td><%= link_to(blog.status, toggle_status_blog_path(blog), method: :post) if logged_in?(:site_admin) %></td>
-  <td><%= link_to 'Show', blog %></td>
-  <td><%= link_to('Edit', edit_blog_path(blog)) if logged_in?(:site_admin) %></td>
-  <td><%= link_to('Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }) if logged_in?(:site_admin) %></td>
-</tr>
+<div class="blog-post">
+  <h2 class="blog-post-title"><%= blog.title %></h2>
+  <p class="blog-post-meta"><%= l(blog.created_at) %> - vor <%= distance_of_time_in_words(Time.current, blog.created_at) %></p>
+  <p><%= blog.topic.title %></p>
+  <hr>
+  <p><%= blog.body %></p>
+  <p>
+    <%= link_to(
+            blog.status,
+            toggle_status_blog_path(blog),
+            method: :post,
+            role: 'button',
+            class: 'btn btn-light'
+        ) if logged_in?(:site_admin) && actions.include?(:status)
+    %>
+    <%= link_to('Show',
+                blog,
+                role: 'button',
+                class: 'btn btn-light'
+        ) if actions.include?(:show)
+    %>
+    <%= link_to('Edit',
+                edit_blog_path(blog),
+                role: 'button',
+                class: 'btn btn-light'
+        ) if logged_in?(:site_admin) && actions.include?(:edit)
+    %>
+    <%= link_to('Destroy',
+                blog,
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                role: 'button',
+                class: 'btn btn-light'
+        ) if logged_in?(:site_admin) && actions.include?(:destroy)
+    %>
+  </p>
+</div>
