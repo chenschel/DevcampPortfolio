@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def login_helper(style)
+  def login_helper(style = '')
     if current_user.instance_of?(User)
       logout_link(style)
     else
