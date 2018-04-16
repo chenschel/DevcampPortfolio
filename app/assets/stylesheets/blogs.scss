@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /* stylelint-disable selector-list-comma-newline-after */
 
@@ -143,5 +144,13 @@ body {
 
 .navbar {
   margin-bottom: 20px;
+}
+
+/*
+ Custom styles
+ */
+
+.social-links li {
+  font-size: 2.5em;
 }
 
