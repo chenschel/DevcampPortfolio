@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
 
@@ -13,18 +16,22 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'shared/portfolio_nav'%>
 
-    <%= render 'shared/nav', location: 'top' %>
+    <main role="main">
+      <%= render 'shared/portfolio_musthead' %>
+      <%= "Hi, #{current_user.first_name}" %>
 
-    <%= "Hi, #{current_user.first_name}" %>
+      <%= login_helper %>
 
-    <%= login_helper %>
 
-    <%= yield %>
+      <%= yield %>
 
-    <%= source_helper %>
+      <%= source_helper %>
+
+    </main>
+
+    <%= render 'shared/portfolio_footer' %>
 
   </body>
 </html>
