@@ -1,6 +1,6 @@
 <header class="masthead mb-auto">
   <div class="inner">
-    <h3 class="masthead-brand">Hulk Hogan</h3>
+    <h3 class="masthead-brand"><%= "Hi, #{current_user.first_name}" %></h3>
     <nav class="nav nav-masthead justify-content-center">
       <%= nav_item_helper('nav-link') %>
       <%= login_helper('nav-link') %>
