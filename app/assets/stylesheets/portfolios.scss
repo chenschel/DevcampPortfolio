@@ -40,3 +40,14 @@ footer p {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
+/*
+ * Custom style
+ */
+
+a.text-white {
+  color: #999999 !important;
+
+  &.active {
+    color: #fff !important;
+  }
+}

@@ -6,36 +6,9 @@
 
     <div class="collapse navbar-collapse" id="navbarsExample03">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to(root_path, class: "nav-link#{current_page?(root_path) ? ' active' : ''}") do %>
-            Home
-            <%= content_tag(:span, '(current)', class: 'sr-only') if current_page?(root_path) %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(about_me_path, class: "nav-link#{current_page?(about_me_path) ? ' active' : ''}") do %>
-            About me
-            <%= content_tag(:span, '(current)', class: 'sr-only') if current_page?(about_me_path) %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(contact_path, class: "nav-link#{current_page?(contact_path) ? ' active' : ''}") do %>
-            Contact
-            <%= content_tag(:span, '(current)', class: 'sr-only') if current_page?(contact_path) %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(blogs_path, class: "nav-link#{current_page?(blogs_path) ? ' active' : ''}") do %>
-            Blog
-            <%= content_tag(:span, '(current)', class: 'sr-only') if current_page?(blogs_path) %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(portfolios_path, class: "nav-link#{current_page?(portfolios_path) ? ' active' : ''}") do %>
-            Portfolio
-            <%= content_tag(:span, '(current)', class: 'sr-only') if current_page?(portfolios_path) %>
-          <% end %>
-        </li>
+        <%= nav_item_helper('nav-link') do |link| %>
+          <% "<li class='nav-item'>#{link}</li>" %>
+        <% end %>
       </ul>
     </div>
   </div>
