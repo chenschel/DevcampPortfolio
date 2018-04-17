@@ -2,11 +2,18 @@
 
 module ApplicationHelper
   def login_helper(style = '')
+    links = []
+
     if current_user.instance_of?(User)
-      logout_link(style)
+      links << logout_link(style)
     else
-      "#{login_link(style)} #{register_link(style)}".html_safe
+      links << login_link(style)
+      links << register_link(style)
     end
+
+    yield links if block_given?
+
+    links.join.html_safe
   end
 
   # rubocop:disable GuardClause

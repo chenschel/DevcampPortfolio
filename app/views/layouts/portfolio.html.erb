@@ -20,15 +20,10 @@
 
     <main role="main">
       <%= render 'shared/portfolio_musthead' %>
-      <%= "Hi, #{current_user.first_name}" %>
-
-      <%= login_helper %>
-
 
       <%= yield %>
 
       <%= source_helper %>
-
     </main>
 
     <%= render 'shared/portfolio_footer' %>
