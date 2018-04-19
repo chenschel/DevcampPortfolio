@@ -8,14 +8,17 @@ class Portfolio < ApplicationRecord
 
   validates :title, :subtitle, :body, :main_image, :thumb_image, presence: true
 
+  mount_uploader :thumb_image, PortfolioUploader
+  mount_uploader :main_image, PortfolioUploader
+
   scope :angular, -> { where(subtitle: 'Angular') }
   scope :ruby_on_rails, -> { where(subtitle: 'Ruby on Rails') }
   scope :by_position, -> { order(position: :asc) }
 
-  after_initialize :set_defaults
-
-  def set_defaults
-    self.main_image ||= Placeholder.image_generator(height: 300, width: 150)
-    self.thumb_image ||= Placeholder.image_generator(height: 120, width: 60)
-  end
+  # after_initialize :set_defaults
+  #
+  # def set_defaults
+  #   self.main_image ||= Placeholder.image_generator(height: 300, width: 150)
+  #   self.thumb_image ||= Placeholder.image_generator(height: 120, width: 60)
+  # end
 end
