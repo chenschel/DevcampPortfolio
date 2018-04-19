@@ -29,7 +29,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: rgba(53, 53,53 ,0.8);
 }
 
 body {
@@ -92,7 +92,6 @@ body {
   }
 }
 
-
 /*
  * Cover
  */
@@ -131,4 +130,19 @@ body {
 .login > .card {
   width: 22rem;
   margin: 0 auto;
+}
+
+#background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: image-url('home_bg.jpeg') no-repeat;
+  background-size: cover;
 }
