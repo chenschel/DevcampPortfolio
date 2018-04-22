@@ -7,4 +7,6 @@ class Blog < ApplicationRecord
 
   validates :title, :body, presence: true
   belongs_to :topic, optional: true
+
+  scope :by_created_at, -> { order(created_at: :desc) }
 end

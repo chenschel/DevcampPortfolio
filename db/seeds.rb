@@ -6,7 +6,7 @@ end
 
 puts '10 Topics created'
 
-50.times do |x|
+150.times do |x|
   offset = rand(Topic.count)
   topic = Topic.offset(offset).first
   Blog.create!(
@@ -16,7 +16,15 @@ puts '10 Topics created'
   )
 end
 
-puts '50 Blog Posts created'
+puts '150 Blog Posts created'
+
+Blog.find_each do |blog|
+  days_in_past = rand(800)
+  blog.created_at = blog.created_at - days_in_past.days
+  blog.save!
+end
+
+puts 'manipulate created_at for blog entries'
 
 5.times do |x|
   Skill.create!(
