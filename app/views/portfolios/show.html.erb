@@ -10,19 +10,20 @@
 
       <p><%= @portfolio.body %></p>
 
-      <h2>Technologies used:</h2>
+      <% if @portfolio.technologies.any? %>
+        <h2>Technologies used:</h2>
 
-      <% @portfolio.technologies.each do |technology| %>
-        <p><%= technology.name %></p>
-      <% end %>
-
-      <% if logged_in?(:site_admin) %>
-        <%= link_to edit_portfolio_path(@portfolio) do %>
-          Edit |
+        <% @portfolio.technologies.each do |technology| %>
+          <p><%= technology.name %></p>
         <% end %>
       <% end %>
-      <%= link_to 'View all Portfolio Items', portfolios_path %>
     </div>
+    <% if logged_in?(:site_admin) %>
+      <div class="col-md-12">
+        <hr>
+        <%= link_to('Edit', edit_portfolio_path(@portfolio), class: 'btn btn-warning') %>
+      </div>
+    <% end %>
   </div>
 
 </div>
