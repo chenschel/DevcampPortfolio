@@ -2,7 +2,7 @@
 
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :topics, only: [:index, :show, :new, :edit]
+  before_action :topics, only: [:index, :show, :new, :edit, :create, :update]
   layout 'blog'
 
   access all: [:show, :index], user: { except: [:destroy, :new, :create, :update, :edit, :toggle_status] }, site_admin: :all
@@ -76,7 +76,7 @@ class BlogsController < ApplicationController
       @blog.draft!
     end
 
-    redirect_to blogs_url, notice: 'Blog status was updated.'
+    redirect_to @blog, notice: 'Blog status was updated.'
   end
 
   private
