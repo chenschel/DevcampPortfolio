@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope :blogs do
+    get 'topic/:topic_id', to: 'blogs#topic', as: 'blogs_topic'
+  end
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   root to: 'pages#home'

@@ -2,7 +2,7 @@
 
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :topics, only: [:index, :show, :new, :edit, :create, :update]
+  before_action :topics, only: [:index, :show, :new, :edit, :create, :update, :topic]
   layout 'blog'
 
   access all: [:show, :index], user: { except: [:destroy, :new, :create, :update, :edit, :toggle_status] }, site_admin: :all
@@ -77,6 +77,11 @@ class BlogsController < ApplicationController
     end
 
     redirect_to @blog, notice: 'Blog status was updated.'
+  end
+
+  def topic
+    @blogs = Topic.find(params[:topic_id]).blogs.page(params[:page]).per(2)
+    render :index
   end
 
   private
