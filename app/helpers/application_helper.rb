@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def alerts
+    alert_generator(*flash_message_and_type)
+  end
+
+  def alert_generator(message, title, image)
+    js(add_gritter(message, title: title, image: image))
+  end
+
   def login_helper(style = '')
     links = login_links(style)
 
@@ -42,6 +50,12 @@ module ApplicationHelper
   end
 
   private
+
+  def flash_message_and_type
+    return [flash[:alert], 'Alert', :alert] if flash[:alert]
+    return [flash[:error], 'Error', :error] if flash[:error]
+    [flash[:notice], 'Info', :success]
+  end
 
   def login_links(style)
     links = []

@@ -1,7 +1,7 @@
 <div class="blog-post">
   <h2 class="blog-post-title"><%= blog.title %></h2>
   <p class="blog-post-meta"><%= l(blog.created_at) %> - vor <%= distance_of_time_in_words(Time.current, blog.created_at) %></p>
-  <p><%= blog.topic.title %></p>
+  <p><%= blog.topic.title if blog.topic.present? %></p>
   <hr>
   <p><%= markdown(blog.body) %></p>
   <p>
