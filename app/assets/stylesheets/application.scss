@@ -147,3 +147,9 @@ body {
   background: image-url('home_bg.jpeg') no-repeat;
   background-size: cover;
 }
+
+.tweets.list-group {
+  & .list-group-item{
+    background-color: transparent;
+  }
+}

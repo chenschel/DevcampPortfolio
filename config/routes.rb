@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'about-me', to: 'pages#about'
   get 'contact', to: 'pages#contact'
+  get 'social-media', to: 'pages#social_media'
 
   resources :blogs do
     member do
