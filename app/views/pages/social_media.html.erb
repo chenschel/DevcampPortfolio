@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-12">
-    <ul class="list-group tweets">
-      <% @tweets.each do |tweet| %>
-        <li class="list-group-item"><%= twitter_parser(tweet) %></li>
-      <% end %>
-    </ul>
-  </div>
+  <% @tweets.each do |tweet| %>
+    <div class="col-md-6">
+      <div class="card tech-news">
+        <%= twitter_parser(tweet) %>
+      </div>
+    </div>
+  <% end %>
 </div>

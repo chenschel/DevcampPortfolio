@@ -22,7 +22,7 @@ module PagesHelper
     }ix
 
     tweet.gsub(regex) do |url|
-      link_to(url, url, target: '_blank')
+      link_to(url, url, target: '_blank', class: 'btn btn-link')
     end.html_safe
   end
   # rubocop:enable Metrics/MethodLength
