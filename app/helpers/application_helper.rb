@@ -36,13 +36,7 @@ module ApplicationHelper
   end
 
   def nav_item_helper(style)
-    links = [
-      nav_link('Home', root_path, style),
-      nav_link('About me', about_me_path, style),
-      nav_link('Contact', contact_path, style),
-      nav_link('Blog', blogs_path, style),
-      nav_link('Portfolio', portfolios_path, style)
-    ]
+    links = nav_links(style)
 
     links.map! { |link| yield link } if block_given?
 
@@ -85,6 +79,17 @@ module ApplicationHelper
       space_after_headers: true,
       fenced_code_blocks: true
     }
+  end
+
+  def nav_links(style)
+    [
+      nav_link('Home', root_path, style),
+      nav_link('About me', about_me_path, style),
+      nav_link('Contact', contact_path, style),
+      nav_link('Tech-News', social_media_path, style),
+      nav_link('Blog', blogs_path, style),
+      nav_link('Portfolio', portfolios_path, style)
+    ]
   end
 
   def nav_link(text, path, style, method: :get)

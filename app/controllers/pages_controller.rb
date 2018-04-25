@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def contact; end
 
   def social_media
-    @tweets = SocialMedia::Twitter.search('ruby on rails')
+    @tweets = SocialMedia::Twitter.search('#rubyonrails')
     @tweets += SocialMedia::Twitter.search('sumcumo')
   end
 end

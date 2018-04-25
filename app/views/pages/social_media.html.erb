@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <ul class="list-group tweets">
       <% @tweets.each do |tweet| %>
-        <li class="list-group-item"><%= tweet %></li>
+        <li class="list-group-item"><%= twitter_parser(tweet) %></li>
       <% end %>
     </ul>
   </div>
