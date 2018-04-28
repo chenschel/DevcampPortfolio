@@ -3,9 +3,18 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - db/**/*
+    - bin/**/*
 
 Style/Documentation:
   Enabled: false
 
 LineLength:
   Enabled: false
+
+BlockLength:
+  Exclude:
+    - spec/**/*
+
+MixinUsage:
+  Exclude:
+    - spec/**/*
