@@ -4,6 +4,8 @@
 
 <%= render 'comments/comment_form' %>
 
-<%= render @comments %>
+<div id="comments" data-blog-id="<%= @blog.id %>">
+  <%= render @comments %>
+</div>
 
 <%= link_to 'Back', blogs_path, class: 'btn btn-link', role: 'button' %>

@@ -1,5 +1,5 @@
 <% unless current_user.is_a?(GuestUser) %>
-  <%= form_with(model: @comment, url: '#', local: true) do |form| %>
+  <%= form_with(model: @comment, id: 'new_comment', url: '#', local: true) do |form| %>
     <%= render 'shared/form_errors', form_item: @comment %>
 
     <div class="form-group">
