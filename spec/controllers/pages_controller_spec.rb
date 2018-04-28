@@ -11,7 +11,7 @@ RSpec.describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET aboute' do
+  describe 'GET about' do
     it 'renders the about me template' do
       get :about
       expect(response.status).to eq(200)

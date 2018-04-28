@@ -76,6 +76,8 @@ group :development, :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.2'
   gem 'capybara', '~> 3.0', '>= 3.0.2'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3', require: false
+  gem 'guard-rubocop', '~> 1.3'
 end
 
 group :development do

@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - db/**/*
     - bin/**/*
+    - Guardfile
 
 Style/Documentation:
   Enabled: false

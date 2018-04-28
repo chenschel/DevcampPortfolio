@@ -6,10 +6,6 @@ class PagesController < ApplicationController
     @skills = Skill.all
   end
 
-  def about; end
-
-  def contact; end
-
   def social_media
     @tweets = SocialMedia::Twitter.search('#rubyonrails')
     @tweets += SocialMedia::Twitter.search('sumcumo')
