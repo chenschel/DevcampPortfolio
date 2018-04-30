@@ -9,7 +9,7 @@ jQuery(document).on('turbolinks:load', ->
       },
       connected: -> # first do nothing
       disconnected: -> # first do nothing
-      receive: (data) ->
+      received: (data) ->
         comments.append(data['comment'])
       send_comment: (comment, blog_id) ->
         @perform 'send_comment', comment: comment, blog_id: blog_id

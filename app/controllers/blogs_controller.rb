@@ -19,7 +19,6 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.includes(:comments).friendly.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.all
     @page_title = @blog.title
     @seo_keywords = @blog.body
   end
