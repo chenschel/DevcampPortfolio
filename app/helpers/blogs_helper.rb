@@ -26,6 +26,14 @@ module BlogsHelper
     years_by_months
   end
 
+  def topic_blog_count_helper(topic)
+    counter = []
+    counter << topic.blogs.published.count
+    counter << topic.blogs.draft.count if logged_in?(:site_admin)
+
+    counter.join('/ draft:')
+  end
+
   private
 
   def archive_link(month, year)

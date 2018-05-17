@@ -2,7 +2,7 @@
   <nav class="nav d-flex justify-content-between">
     <%= link_to t('all'), blogs_path, class: 'p-2 text-muted' %>
     <% @topics.each do |topic| %>
-      <%= link_to topic.title, blogs_topic_path(topic), class: 'p-2 text-muted' %>
+      <%= link_to "#{topic.title} (#{topic_blog_count_helper(topic)})", blogs_topic_path(topic), class: 'p-2 text-muted' %>
     <% end %>
   </nav>
 </div>
