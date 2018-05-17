@@ -1,10 +1,11 @@
-10.times do |topic|
+topics = ['Ruby on Rails', 'HSV', 'Database', 'JS', 'AI']
+topics.each do |topic|
   Topic.create!(
-    title: "Topic #{topic + 1}"
+    title: topic
   )
 end
 
-puts '10 Topics created'
+puts "#{topics.size} Topics created"
 
 150.times do |x|
   offset = rand(Topic.count)

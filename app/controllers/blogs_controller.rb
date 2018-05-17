@@ -89,10 +89,19 @@ class BlogsController < ApplicationController
     redirect_to @blog, notice: 'Blog status was updated.'
   end
 
+  # rubocop:disable AbcSize
   def topic
-    @blogs = Topic.find(params[:topic_id]).blogs.page(params[:page]).per(2)
+    topic = Topic.find(params[:topic_id])
+
+    @blogs = if logged_in?(:site_admin)
+               topic.blogs.page(params[:page]).per(2)
+             else
+               topic.blogs.published.by_created_at.page(params[:page]).per(2)
+             end
+
     render :index
   end
+  # rubocop:enable AbcSize
 
   private
 
