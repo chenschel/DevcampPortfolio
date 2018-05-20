@@ -28,10 +28,15 @@ module ApplicationHelper
 
   # rubocop:enable GuardClause
 
-  def markdown(text)
-    renderer = Redcarpet::Render::HTML.new(markdown_options)
-    markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)
+  class CodeRayify < Redcarpet::Render::HTML
+    def block_code(code, language)
+      CodeRay.scan(code, language).div
+    end
+  end
 
+  def markdown(text)
+    coderayifyed = CodeRayify.new(markdown_options)
+    markdown = Redcarpet::Markdown.new(coderayifyed, markdown_extensions)
     markdown.render(text).html_safe
   end
 
@@ -65,9 +70,10 @@ module ApplicationHelper
 
   def markdown_extensions
     {
+      fenced_code_blocks: true,
+      no_intra_emphasis: true,
       autolink: true,
-      superscript: true,
-      disable_indented_code_blocks: true
+      lax_html_blocks: true
     }
   end
 
@@ -76,8 +82,7 @@ module ApplicationHelper
       filter_html: true,
       hard_wrap: true,
       link_attributes: { rel: 'nofollow', target: '_blank' },
-      space_after_headers: true,
-      fenced_code_blocks: true
+      space_after_headers: true
     }
   end
 

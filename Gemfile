@@ -51,6 +51,7 @@ gem 'my_view_tool', git: 'https://github.com/chenschel/my_view_tool'
 gem 'petergate', '~> 1.8', '>= 1.8.1'
 
 gem 'redcarpet', '~> 3.4'
+gem 'coderay', '~> 1.1', '>= 1.1.2'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
