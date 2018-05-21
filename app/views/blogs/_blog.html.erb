@@ -7,6 +7,7 @@
   <% if logged_in?(:site_admin) %>
     <p><%= blog.status %></p>
   <% end %>
+
   <hr>
   <p><%= markdown(blog.body) %></p>
   <p>
@@ -18,19 +19,19 @@
             class: 'btn btn-light'
         ) if logged_in?(:site_admin) && actions.include?(:status)
     %>
-    <%= link_to('Show',
+    <%= link_to(fa_icon('eye'),
                 blog,
                 role: 'button',
                 class: 'btn btn-light'
         ) if actions.include?(:show)
     %>
-    <%= link_to('Edit',
+    <%= link_to(fa_icon('pencil-square-o'),
                 edit_blog_path(blog),
                 role: 'button',
                 class: 'btn btn-light'
         ) if logged_in?(:site_admin) && actions.include?(:edit)
     %>
-    <%= link_to('Destroy',
+    <%= link_to(fa_icon('trash-o'),
                 blog,
                 method: :delete,
                 data: { confirm: 'Are you sure?' },
