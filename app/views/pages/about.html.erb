@@ -1,22 +1,44 @@
-<h1 class="cover-heading">About me</h1>
+<div class="about">
+  <h1 class="cover-heading">About me</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag('about_me.jpg', class: 'img-fluid rounded') %>
+      <div class="skill">
+        <% @skills.each do |skill| %>
+          <h4><%= skill.title %></h4>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped bg-warning"
+              role="progressbar"
+              aria-valuenow="<%= skill.percent_utilized %>"
+              aria-valuemax="100"
+              aria-valuemin="0"
+              style="width: <%= skill.percent_utilized %>%"
+            ></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <p class="lead">
+        Bavaria ipsum dolor sit amet von zua baddscher ned sodala, Xaver jo mei Trachtnhuat. Gor Reiwadatschi no a Maß
+        no a Maß vui, hogg di hera nia need. Spotzerl gor sog i schoo Klampfn anbandeln is des liab Ledahosn abfieseln
+        is des liab heid gfoids ma sagrisch guad? Mim Radl foahn ned woar Baamwach, .
+      </p>
 
-<div class="row">
-  <div class="col-md-4">
-    <%= image_tag('about_me.jpg', class: 'img-fluid rounded') %>
-  </div>
-  <div class="col-md-8">
-    <p class="lead">
-      Bavaria ipsum dolor sit amet von zua baddscher ned sodala, Xaver jo mei Trachtnhuat. Gor Reiwadatschi no a Maß no a Maß vui, hogg di hera nia need. Spotzerl gor sog i schoo Klampfn anbandeln is des liab Ledahosn abfieseln is des liab heid gfoids ma sagrisch guad? Mim Radl foahn ned woar Baamwach, .
-    </p>
+      <p class="lead">
+        No a Maß hob hoid fias hi, gscheit Heimatland. Measi Maßkruag Spotzerl, zwoa abfieseln kummd Gstanzl? G’hupft
+        wia gsprunga is ma Wuascht Bradwurschtsemmal des, de hogg ma uns zamm. Do o’ha Kuaschwanz Schuabladdla i bin a
+        woschechta Bayer a so a Schmarn mim Radl foahn Sauakraud du dadst ma scho daugn, griaß God beinand.
+      </p>
 
-    <p class="lead">
-      No a Maß hob hoid fias hi, gscheit Heimatland. Measi Maßkruag Spotzerl, zwoa abfieseln kummd Gstanzl? G’hupft wia gsprunga is ma Wuascht Bradwurschtsemmal des, de hogg ma uns zamm. Do o’ha Kuaschwanz Schuabladdla i bin a woschechta Bayer a so a Schmarn mim Radl foahn Sauakraud du dadst ma scho daugn, griaß God beinand.
-    </p>
-
-    <p class="lead">
-      Bavaria ipsum dolor sit amet sei Broadwurschtbudn abfieseln a bissal wos gehd ollaweil sodala Obazda! Amoi Wiesn gwiss, abfieseln? Wurscht i sog ja nix, i red ja bloß oans Zidern Resi, Musi! In da greana Au eam Steckerleis des wiad a Mordsgaudi vui huift vui o’ha pfiad de, mim. No a Maß ghupft wia gsprunga da nackata, wann griagd ma nacha wos z’dringa barfuaßat gfreit mi des is schee ma. Midanand Schdeckalfisch fei hogg di hera gwihss Marterl back mas Xaver gwiss kummd: Des basd scho Habedehre Gschicht om auf’n Gipfe luja, dahoam.
-    </p>
+      <p class="lead">
+        Bavaria ipsum dolor sit amet sei Broadwurschtbudn abfieseln a bissal wos gehd ollaweil sodala Obazda! Amoi Wiesn
+        gwiss, abfieseln? Wurscht i sog ja nix, i red ja bloß oans Zidern Resi, Musi! In da greana Au eam Steckerleis
+        des wiad a Mordsgaudi vui huift vui o’ha pfiad de, mim. No a Maß ghupft wia gsprunga da nackata, wann griagd ma
+        nacha wos z’dringa barfuaßat gfreit mi des is schee ma. Midanand Schdeckalfisch fei hogg di hera gwihss Marterl
+        back mas Xaver gwiss kummd: Des basd scho Habedehre Gschicht om auf’n Gipfe luja, dahoam.
+      </p>
+    </div>
   </div>
 </div>
-
-
