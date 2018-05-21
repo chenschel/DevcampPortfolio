@@ -4,40 +4,9 @@
     <%= l(blog.created_at) %> - vor <%= distance_of_time_in_words(Time.current, blog.created_at) %>
   </p>
   <p><%= blog.topic.title if blog.topic.present? %></p>
-  <% if logged_in?(:site_admin) %>
-    <p><%= blog.status %></p>
-  <% end %>
+
+  <%= render 'blogs/actions', actions: actions, blog: blog %>
 
   <hr>
   <p><%= markdown(blog.body) %></p>
-  <p>
-    <%= link_to(
-            blog.status,
-            toggle_status_blog_path(blog),
-            method: :post,
-            role: 'button',
-            class: 'btn btn-light'
-        ) if logged_in?(:site_admin) && actions.include?(:status)
-    %>
-    <%= link_to(fa_icon('eye'),
-                blog,
-                role: 'button',
-                class: 'btn btn-light'
-        ) if actions.include?(:show)
-    %>
-    <%= link_to(fa_icon('pencil-square-o'),
-                edit_blog_path(blog),
-                role: 'button',
-                class: 'btn btn-light'
-        ) if logged_in?(:site_admin) && actions.include?(:edit)
-    %>
-    <%= link_to(fa_icon('trash-o'),
-                blog,
-                method: :delete,
-                data: { confirm: 'Are you sure?' },
-                role: 'button',
-                class: 'btn btn-light'
-        ) if logged_in?(:site_admin) && actions.include?(:destroy)
-    %>
-  </p>
 </div>

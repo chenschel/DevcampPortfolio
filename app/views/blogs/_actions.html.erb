@@ -1,0 +1,31 @@
+<p>
+  <%= link_to(
+          fa_icon('file-text-o'),
+          toggle_status_blog_path(blog),
+          method: :post,
+          role: 'button',
+          class: 'btn btn-light',
+          style: blog_status_color(blog)
+      ) if logged_in?(:site_admin) && actions.include?(:status)
+  %>
+  <%= link_to(fa_icon('eye'),
+              blog,
+              role: 'button',
+              class: 'btn btn-light'
+      ) if actions.include?(:show)
+  %>
+  <%= link_to(fa_icon('pencil-square-o'),
+              edit_blog_path(blog),
+              role: 'button',
+              class: 'btn btn-light'
+      ) if logged_in?(:site_admin) && actions.include?(:edit)
+  %>
+  <%= link_to(fa_icon('trash-o'),
+              blog,
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              role: 'button',
+              class: 'btn btn-light'
+      ) if logged_in?(:site_admin) && actions.include?(:destroy)
+  %>
+</p>

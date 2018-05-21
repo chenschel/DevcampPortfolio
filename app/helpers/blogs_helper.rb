@@ -34,6 +34,10 @@ module BlogsHelper
     counter.join('/ draft:')
   end
 
+  def blog_status_color(blog)
+    'color: red;' if blog.draft?
+  end
+
   private
 
   def archive_link(month, year)
